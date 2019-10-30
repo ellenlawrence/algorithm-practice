@@ -61,7 +61,11 @@ def remove_node(node):
     Does not return anything; changes list in place.
     """
 
-    
+    if not node.next:
+        raise ValueError('Cannot remove tail node')
+
+    node.data = node.next.data
+    node.next = node.next.next
 
 
 if __name__ == '__main__':
