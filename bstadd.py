@@ -89,6 +89,23 @@ class Node(object):
     def insert(self, new_data):
         """Insert new node with `new_data` to BST tree rooted here."""
 
+        if new_data > self.data and self.right == None:
+            self.right = Node(new_data)
+
+        elif new_data < self.data and self.left == None:
+            self.left = Node(new_data)
+
+        else:
+            if new_data > self.data:
+                self.right.insert(new_data)
+            elif new_data < self.data:
+                self.left.insert(new_data)
+            else:
+                raise ValueError('Cannot insert, node with same data already exists.')
+
+
+
+
 if __name__ == "__main__":
     import doctest
     
