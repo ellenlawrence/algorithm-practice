@@ -58,20 +58,30 @@ def has_balanced_brackets(phrase):
     closed = [')', '}', ']', '>']
 
     balanced = 0
-    index = None
+    brackets = list()
 
-    for i, char in enumerate(phrase):
+    for char in phrase:
 
       if char in opened:
         balanced += 1
+        brackets.append(char)
 
       if char in closed:
         
-        if balanced == 0:
+        if balanced <= 0:
           balanced -= 1
 
+        else:
+          if opened.index(brackets[-1]) == closed.index(char):
+            balanced -= 1
+            brackets.pop()
+          else:
+            return False
 
-
+    if balanced == 0:
+      return True
+    else:
+      return False
 
 
 
