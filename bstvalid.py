@@ -72,6 +72,23 @@ class Node:
     def is_valid(self):
         """Is this tree a valid BST?"""
 
+        if self.left:
+            if self.left.data < self.data:
+                self.left.is_valid()
+            else:
+                return False
+
+        if self.right:
+            if self.right.data > self.data:
+                self.right.is_valid()
+            else:
+                return False
+
+        return True
+
+
+
+
 if __name__ == "__main__":
     import doctest
 
