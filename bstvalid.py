@@ -72,19 +72,27 @@ class Node:
     def is_valid(self):
         """Is this tree a valid BST?"""
 
-        if self.left:
-            if self.left.data < self.data:
-                self.left.is_valid()
-            else:
-                return False
+        def ok(n, lt, gt):
+            """Tests if all nodes left of n are less than lt and if all nodes
+            right of n are greater than gt."""
 
-        if self.right:
-            if self.right.data > self.data:
-                self.right.is_valid()
-            else:
-                return False
+            if n is None:
+                print('This is not a node')
 
-        return True
+
+            if (lt is not None and n.data > lt) or (gt
+                is not None and n.data < gt):
+                    raise ValueError
+
+            ok(n.left, n.data, gt)
+            ok(n.right, lt, n.data)
+
+        try: 
+            ok(self, None, None)
+            return True 
+
+        except:
+            return False
 
 
 
