@@ -27,6 +27,14 @@ Longer patterns should work::
 def decode(s):
     """Decode a string."""
 
+    new_str = ''
+
+    for i, char in enumerate(s):
+        if char.isdigit():
+            new_str += s[i + 1 + int(char)]
+
+    return new_str
+
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:
