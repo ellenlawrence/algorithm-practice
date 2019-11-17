@@ -25,7 +25,25 @@ Let's make sure we have non-commutative operators working:
 def calc(s):
     """Evaluate expression."""
 
-    
+    items = s.split()
+
+    operator2 = int(items.pop())
+
+    while items:
+        operator1 = int(items.pop())
+        operator = items.pop()
+
+        if operator == '+':
+            operator2 = operator1 + operator2
+        if operator == '-':
+            operator2 = operator1 - operator2
+        if operator == '*':
+            operator2 = operator1 * operator2
+        if operator == '/':
+            operator2 = int(operator1 / operator2)
+
+    return operator2        
+
 
 
 if __name__ == '__main__':
