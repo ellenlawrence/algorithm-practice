@@ -106,8 +106,20 @@ class BinaryNode(object):
 
     def is_balanced(self):
         """Is the tree at this node balanced?"""
+        def _num_descendants(node):
 
-        
+          if not node:
+            return 0
+
+          left = _num_descendants(node.left)
+          right = _num_descendants(node.right)
+
+          if left is None:
+            return None
+
+          return max(left, right) + 1
+
+        return _num_descendants(self) is not None
 
 
 if __name__ == '__main__':
