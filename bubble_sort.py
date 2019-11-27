@@ -3,7 +3,13 @@ import unittest
 def bubble_sort(lst):
     '''Bubble sorts list.'''
 
-
+    for j in range(len(lst) - 1):
+        for i in range(len(lst) - 1 - j):
+            if lst[i] > lst[i + 1]:
+                lst[i], lst[i + 1] = lst[i + 1], lst[i]
+            else:
+                continue
+    return lst
 
 class TestBubble(unittest.TestCase):
     def test_bubble_sort(self):
