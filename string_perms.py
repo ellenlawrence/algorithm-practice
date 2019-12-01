@@ -3,7 +3,8 @@ import unittest
 def find_string_perms(s, b):
     '''Finds all the permutations of smaller string s inside bigger string b.'''
 
-
+    for i in range(len(b) - len(s) - 1):
+        
 
 
 class TestStringPerms(unittest.TestCase):
