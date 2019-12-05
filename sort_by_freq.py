@@ -19,7 +19,6 @@ def sort_by_freq(lst):
 
     return list_by_freq
 
-
 class TestSortByFreq(unittest.TestCase):
     def test_sort_by_freq(self):
         '''Tests that the sort by frequency function is producing the correct
