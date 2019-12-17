@@ -110,23 +110,19 @@ while not game_over(board):
 
     render_move(board, x1, y1, x2, y2)
     display_board(board)
-    player_num += 1
     
-    # Here I started to implement a way to check if a capturing move had been
-    # made but I ran out of time. I left the player_num += 1 above so that the
-    # game still alternates players.
-    # 
-    # for row in board:
-    #     for item in row:
-    #         if item == 'w':
-    #             w_new += 1
-    #         if item == 'b':
-    #             b_new += 1
-    # if (w_new == w_old) and (b_new == b_old):
-    #     player_num += 1
-    # else:
-    #     w_old = w_new
-    #     b_old = b_new
+    
+    for row in board:
+        for item in row:
+            if item == 'w':
+                w_new += 1
+            if item == 'b':
+                b_new += 1
+    if (w_new == w_old) and (b_new == b_old):
+        player_num += 1
+    else:
+        w_old = w_new
+        b_old = b_new
 
 
 
