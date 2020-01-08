@@ -30,28 +30,19 @@ def lemur(branches):
     assert branches[0] == 0, "First branch must be alive"
     assert branches[-1] == 0, "Last branch must be alive"
 
-    if len(branches) == 1:
-        return 0
-    if len(branches) == 2:
-        return 1
-
     jumps = 0
     i = 0
 
     while i < len(branches) - 1:
-        if (branches[i + 2]) and (branches[i + 2] == 0):
-            i = i + 2
-            jumps += 1
-        elif (branches[i + 1]) and (branches[i + 1] == 0):
-            i += 1
-            jumps += 1
-        
+        i += 2
+        if i >= len(branches) or branches[i] == 1:
+            i -= 1
+        jumps += 1
 
     return jumps
 
-print(lemur([0, 0, 0, 0, 1, 0, 0, 1, 0]))
-# if __name__ == '__main__':
-#     import doctest
-#     if doctest.testmod().failed == 0:
-#         print("\n*** ALL TESTS PASSED. NICE JUMPING!\n")
+if __name__ == '__main__':
+    import doctest
+    if doctest.testmod().failed == 0:
+        print("\n*** ALL TESTS PASSED. NICE JUMPING!\n")
 
