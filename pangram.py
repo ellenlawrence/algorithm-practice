@@ -7,12 +7,34 @@ For example::
     
     >>> is_pangram("I love cats, but not mice")
     False
+
+    >>> is_pangram("The quick brown fox jumps over he lazy dog!")
+    True
 """
 
 
 def is_pangram(sentence):
     """Given a string, return True if it is a pangram, False otherwise."""
 
+    # alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+    # for letter in alpha:
+    #     if letter in sentence or letter.upper() in sentence:
+    #         continue
+    #     else:
+    #         return False
+    # return True
+
+    used = set()
+
+    for char in sentence:
+        if char.lower() not in used and char.isalpha():
+            used.add(char.lower())
+
+    if len(used) == 26:
+        return True
+    else:
+        return False
 
 if __name__ == "__main__":
     import doctest
