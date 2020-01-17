@@ -48,7 +48,12 @@ def reverse_linked_list(head):
 
     while current:
         next = current.next
-        
+        current.next = prev
+        prev = current
+        current = next
+    head = prev
+
+    return head
 
 
 if __name__ == '__main__':
