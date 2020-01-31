@@ -3,7 +3,7 @@ import unittest
 def n_fib(n):
     '''Returns the nth number in the Fibonacci sequence.'''
 
-    if n < 0:
+    if n <= 0:
         raise ValueError('Input must be greater than 0')
     if n == 1:
         return 0
@@ -11,7 +11,7 @@ def n_fib(n):
         return 1
     else:
         return n_fib(n-1) + n_fib(n-2)
-
+    # time complexity is O(n)
 
 class TestFib(unittest.TestCase):
     def test_n_fib(self):
